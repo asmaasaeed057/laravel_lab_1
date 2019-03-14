@@ -24,8 +24,15 @@
         <td>{{$post->description}}</td>
         <td>{{ isset($post->user) ? $post->user->name : 'Not Found'}}</td>
         <td>{{$post->created_at}}</td>
-        <td><a href="/posts/{{$post->id}}/show" class="btn btn-success">Show</a>
-        <td><a href="/posts/{{$post->id}}/edit" class="btn btn-success">Edit</a> 
+
+        <td><a href="/posts/{{$post->id}}/show" class="btn btn-success">Show</a></td>
+        {{-- <td><a href="/posts/{{$post->id}}/edit" class="btn btn-success">Edit</a>  --}}
+
+          <td>
+          <a href="{{route('posts.edit',$post->id)}}">Edit </a>
+          </td> 
+
+
         <td>
             <form action="{{route('posts.destroy',$post->id)}}" method="POST">
               @csrf
