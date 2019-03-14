@@ -26,6 +26,6 @@
        <h3>{{$post->user->email}}</h3>
 
        <h2>created at</h2>
-       <h3>{{$post->created_at}}</h3>
+       <h3>{{$post->created_at->toDateString()}}</h3>
        
 @endsection
