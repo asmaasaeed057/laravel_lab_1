@@ -1,5 +1,8 @@
 <?php
 
+
+
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -26,4 +29,35 @@ class PostsController extends Controller
 
         return redirect()->route('posts.index');
     }
+
+
+    public function show(Post $post)
+    {
+      
+        return view('posts.show', [
+            'post' => $post,
+           
+        ]);
+    }
+    
+    public function edit(Post $post)
+    {
+        return view('posts.edit', [
+            'post' => $post,
+        ]);
+    }
+
+  
+    public function destroy(Post $post){
+        
+        $post->delete();
+
+        return redirect()->route('posts.index');
+
+  }
+
+  public function update(Post $post){
+        $post->update();
+        return redirect()->route('posts.index');
+  }
 }

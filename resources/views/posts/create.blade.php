@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <a href="{{route('posts.index')}}" class="btn btn-danger">Back</a> 
+<a href="{{route('posts.index')}}" class="btn btn-danger">Back</a>
 
    <form action="{{route('posts.store')}}" method="POST">
        @csrf
@@ -14,14 +14,14 @@
            <textarea name="description" class="form-control"></textarea>
        </div>
 
-      {{-- <div class="form-group">
+        <div class="form-group">
            <label for="exampleInputPassword1">Post Creator</label>
            <select class="form-control" name="user_id">
                @foreach($users as $user)
                    <option value="{{$user->id}}">{{$user->name}}</option>
                @endforeach
            </select>
-       </div>   --}}
+       </div>
 
    <button type="submit" class="btn btn-primary">Submit</button>
    </form>

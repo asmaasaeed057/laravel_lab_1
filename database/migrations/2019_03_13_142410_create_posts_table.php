@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             
             $table->string('title', 100);
             $table->text('description');
+            
         });
     }
 
