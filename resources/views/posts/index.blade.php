@@ -29,7 +29,7 @@
         {{-- <td><a href="/posts/{{$post->id}}/edit" class="btn btn-success">Edit</a>  --}}
 
           <td>
-          <a href="{{route('posts.edit',$post->id)}}">Edit </a>
+          <a href="{{route('posts.edit',$post->id)}} " class="btn btn-success">Edit </a>
           </td> 
 
 

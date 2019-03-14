@@ -24,7 +24,7 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|min:3',
+            'title' => 'required|min:3|unique:posts,title,'.$this->post['id'],//unique validation
             'description' => 'required|min:10',
             'user_id' => 'exists:users,id',  //to check that the user is existing in the DB
         ];
@@ -37,6 +37,7 @@ class StorePostRequest extends FormRequest
         return[
         'title.required' => 'you must enter title',
         'description.required' => 'you must enter description',
+        
         ];
     }
 }
