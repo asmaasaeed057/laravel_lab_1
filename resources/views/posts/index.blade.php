@@ -23,7 +23,7 @@
         <td>{{$post->title}}</td>
         <td>{{$post->description}}</td>
         <td>{{ isset($post->user) ? $post->user->name : 'Not Found'}}</td>
-        <td>{{$post->created_at}}</td>
+        <td>{{$post->created_at->toDateString()}}</td>
 
         <td><a href="/posts/{{$post->id}}/show" class="btn btn-success">Show</a></td>
         {{-- <td><a href="/posts/{{$post->id}}/edit" class="btn btn-success">Edit</a>  --}}
