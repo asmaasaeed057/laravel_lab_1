@@ -25,12 +25,13 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => 'required|min:3',
-            'description' => 'required|min:10'
+            'description' => 'required|min:10',
+            'user_id' => 'exists:users,id',  //to check that the user is existing in the DB
         ];
     }
 
     //this function is to customize error message
-    public function messages()
+    public function messages() 
 
     {
         return[
