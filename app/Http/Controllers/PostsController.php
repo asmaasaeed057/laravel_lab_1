@@ -15,15 +15,8 @@ class PostsController extends Controller
 {
     public function index()
     {
-
-        $posts = Post::paginate(5);
-        //using pagination method
+        $posts = Post::with('User')->paginate(5);
         return view('posts.index', ['posts' => $posts]);
-         echo $post->render();
-         
-        // return view('posts.index', [
-        //     'posts' => Post::all()
-        // ]);
     }
 
     public function create(){
@@ -66,7 +59,6 @@ class PostsController extends Controller
   }
 
   public function update(UpdatePostRequest $request,Post $post){
-      $post->slug=null;
         $post->update($request->all());
         return redirect()->route('posts.index');
   }
