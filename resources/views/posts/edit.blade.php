@@ -28,7 +28,7 @@
        
        <div class="form-group">
             <label for="exampleInputPassword1">post creator</label>
-            <textarea name="description" class="form-control">{{$post->user->name}}</textarea>
+            <textarea name="name" class="form-control">{{$post->user->name}}</textarea>
         </div>
    <button type="submit" class="btn btn-primary">Update</button>
    </form>

@@ -1,3 +1,5 @@
+
+
 @extends('layouts.app')
 
 @section('content')
@@ -26,6 +28,6 @@
        <h3>{{$post->user->email}}</h3>
 
        <h2>created at</h2>
-       <h3>{{$post->created_at->toDateString()}}</h3>
+       <h3>{{$post->created_at->format('l js \of F Y h:i:s A')}}</h3>
        
 @endsection

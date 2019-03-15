@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Post;
 use App\User;
 use App\Http\Requests\post\StorePostRequest;
+use App\Http\Requests\post\UpdatePostRequest;
+
 
 class PostsController extends Controller
 {
@@ -55,7 +57,8 @@ class PostsController extends Controller
 
   }
 
-  public function update(StorePostRequest $request,Post $post){
+  public function update(UpdatePostRequest $request,Post $post){
+      $post->slug=null;
         $post->update($request->all());
         return redirect()->route('posts.index');
   }
