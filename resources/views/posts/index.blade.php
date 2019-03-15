@@ -58,7 +58,7 @@
         
     </tr>
     @endforeach
-
+    {{ $posts->links() }}
   </tbody>
 </table>
 @endsection

@@ -7,15 +7,23 @@ use App\Post;
 use App\User;
 use App\Http\Requests\post\StorePostRequest;
 use App\Http\Requests\post\UpdatePostRequest;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Pagination\Paginator;
 
 
 class PostsController extends Controller
 {
     public function index()
     {
-        return view('posts.index', [
-            'posts' => Post::all()
-        ]);
+
+        $posts = Post::paginate(5);
+        //using pagination method
+        return view('posts.index', ['posts' => $posts]);
+         echo $post->render();
+         
+        // return view('posts.index', [
+        //     'posts' => Post::all()
+        // ]);
     }
 
     public function create(){
