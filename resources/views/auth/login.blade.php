@@ -64,6 +64,22 @@
                                 @endif
                             </div>
                         </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-md-4">
+                               
+
+                                
+
+                                <a class="btn btn-block btn-social btn-github" href=login/github>
+                                    <span class="fa fa-github"></span> Sign in with Github
+                                  </a>
+
+                                  
+                            </div>
+                        </div>
+
+
                     </form>
                 </div>
             </div>

@@ -15,37 +15,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-
-// Route::get('/posts','PostsController@index')->name('posts.index')->middleware('auth');
-// Route::get('/posts/create','PostsController@create')->name('posts.create');
-// Route::post('/posts','PostsController@store')->name('posts.store');
-// Route::get('/posts/{post}/edit','PostsController@edit')->name('posts.edit');
-// Route::put('/posts/{post}','PostsController@update')->name('posts.update');
-// Route::get('/posts/{post}/show','PostsController@show')->name('posts.show');
-// Route::delete('/posts/{post}/destroy','PostsController@destroy')->name('posts.destroy');
-
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/posts','PostsController@index')
-    ->name('posts.index')
-  
-    ;
+    ->name('posts.index');
 
     Route::get('/posts/create','PostsController@create')
     ->name('posts.create');
-    
-   
-    ;
 
     Route::post('/posts','PostsController@store')
-    ->name('posts.store')
-    
-    ;
+    ->name('posts.store');
 
     Route::get('/posts/{post}/edit','PostsController@edit')
-    ->name('posts.edit')
-    
-    ;
+    ->name('posts.edit');
+
     Route::put('/posts/{post}','PostsController@update')
     ->name('posts.update');
 
@@ -63,3 +45,5 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('/login/github/callback', 'Auth\LoginController@handleProviderCallback');

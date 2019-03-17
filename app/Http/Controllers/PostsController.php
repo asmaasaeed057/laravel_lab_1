@@ -15,8 +15,9 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('User')->paginate(5);
+        $posts = Post::paginate(5);
         return view('posts.index', ['posts' => $posts]);
+     
     }
 
     public function create(){

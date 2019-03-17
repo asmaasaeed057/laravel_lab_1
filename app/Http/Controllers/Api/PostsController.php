@@ -6,12 +6,12 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Http\Requests\post\StorePostRequest;
+
 class PostsController extends Controller
 {
     public function index(){
         $posts = Post::paginate(3);
         return PostResource::collection($posts);
-       
     }
 
     public function show($post)
@@ -19,6 +19,7 @@ class PostsController extends Controller
         $post = Post::findOrFail($post);
         return new PostResource($post);
     }
+    
     public function store(StorePostRequest $request)
     {
         Post::create($request->all());
