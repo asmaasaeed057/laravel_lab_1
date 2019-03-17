@@ -52,4 +52,9 @@ return [
         'redirect' => 'http://localhost:8000/login/github/callback',
     ],
 
+    'google' => [
+        'client_id' => '301417342267-6m0vclmrtkhf7icvnjerkav2bfjj3p3l.apps.googleusercontent.com',
+        'client_secret' => '-7O6ms7M4r-Ax9LTyykkOLbt',
+        'redirect' => 'http://localhost:8000/login/google/callback'],
+
 ];

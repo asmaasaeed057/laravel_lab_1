@@ -1,12 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
 
-use Socialite;
+
+
+
+
+namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
-
+use Socialite;
+use App\User;
 class LoginController extends Controller
 {
     /*
@@ -42,14 +46,27 @@ class LoginController extends Controller
 
     public function redirectToProvider()
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver('github')
+        
+        ->redirect();
     }
 
     public function handleProviderCallback()
     {
-
-        $user = Socialite::driver('github')->user();
-        
-                // $user->token;
+        $githubUser = Socialite::driver('github')->user();
+        $user = User::where('email',$githubUser->email)->first();
+        if(!$user){
+            $user = User::create([
+                'name'=> $githubUser->name,
+                'email'=>$githubUser->email,
+                'provider_id'=>$githubUser->id, 
+                ]);
+        }
+        Auth::login($user, true);
+        return redirect($this->redirectTo);
     }
+      
 }
+
+
+

@@ -75,7 +75,12 @@
                                     <span class="fa fa-github"></span> Sign in with Github
                                   </a>
 
-                                  
+
+                                  <a class="btn btn-block btn-social btn-github" href=login/google>
+                                    <span class="fa fa-github"></span> Login With Google
+                                  </a>                                  
+
+                                  {{-- <a href="{{ url('/redirect') }}" class="btn btn-primary">Login With Google</a> --}}
                             </div>
                         </div>
 
